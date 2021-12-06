@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+<link href="assets/images/favicon.png" rel="icon" />
+<title>Documentação Projeto</title>
+<meta name="description" content="Your ThemeForest item Name and description">
+<meta name="author" content="harnishdesign.net">
+
+<!-- Stylesheet
+============================== -->
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css" />
+<!-- Font Awesome Icon -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css" />
+<!-- Magnific Popup -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css" />
+<!-- Highlight Syntax -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/highlight.js/styles/github.css" />
+<!-- Custom Stylesheet -->
+<link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css" />
+</head>
+
+<body data-spy="scroll" data-target=".idocs-navigation" data-offset="125">
+
+<!-- Preloader -->
+<div class="preloader">
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+<!-- Preloader End --> 
+
+<!-- Document Wrapper   
+=============================== -->
+<div id="main-wrapper"> 
+  
+  <!-- Header
+  ============================ -->
+  <header id="header" class="sticky-top"> 
+    <!-- Navbar -->
+    <nav class="primary-menu navbar navbar-expand-lg navbar-dropdown-dark">
+      <div class="container-fluid">
+        <!-- Sidebar Toggler -->
+		<button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
+		
+		<!-- Logo --> 
+        <a class="logo ml-md-3 c" href="index.html" title="TripAcc"> <img src="assets/images/logoverde.png" style="height: 70px;width: 70px; align-items: center; margin-top: 10px;" alt="iDocs Template"/> </a> 
+		<span class="text-2 ml-2"><strong style="font-size: 36px;">TripAcc</strong></span> 
+        <!-- Logo End -->
+        
+		        
+      </div>
+    </nav>
+    <!-- Navbar End --> 
+  </header>
+  <!-- Header End --> 
+  
+  <!-- Content
+  ============================ -->
+  <div id="content" role="main">
+    
+	<!-- Sidebar Navigation
+	============================ -->
+	<div class="idocs-navigation bg-dark docs-navigation-dark">
+      <ul class="nav flex-column ">
+        <li class="nav-item"><a class="nav-link active" href="#idocs_start">Introdução</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#idocs_layout">Descrição do Projeto</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#idocs_content">Especificação da API</a>
+		</li>
+        <li class="nav-item"><a class="nav-link" href="#idocs_components">Testes da API</a>
+          <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link" href="#idocs_accordion">Testes Users</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_tabs">Testes Group</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_social_icon">Testes Payments</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#idocs_faq">Website</a>
+    </div>
+    
+    <!-- Docs Content
+	============================ -->
+    <div class="idocs-content">
+      <div class="container"> 
+        
+        <!-- Getting Started
+		============================ -->
+        <section id="idocs_start">
+        <h1>Introdução</h1>
+        <h2></h2>
+        <p class="lead">Trabalho realizado nas UCS de Computação Distribuída e Desenvolvimento Colaborativo de Software</p>
+		<hr>
+		<div class="row">
+			<div class="col-sm-6 col-lg-4">
+				<ul class="list-unstyled">
+					<li><strong>Curso:</strong> Desenvolvimento Web e Multimédia </li>
+					<li><strong>Projeto realizador por:</strong> Leonardo Gomes & Carlos Araújo</li>
+				</ul>
+			</div>
+			<div class="col-sm-6 col-lg-4">
+				<ul class="list-unstyled">
+					<li><strong class="font-weight-700">Unidade Curricular:</strong> Computação Distribuída & Desenvolvimento Colaborativo de Software</li>
+					<li><strong>Entrega Primeira Fase:</strong> 06/12/2021 </li>
+				</ul>
+			</div>
+		</div>
+        </section>
+  
+		
+        
+		<hr class="divider">
+		
+		<!-- Layout
+		============================ -->
+        <section id="idocs_layout">
+          <h2>Descrição do Projeto</h2>
+          <p class="lead mb-5">O nosso projeto consiste numa aplicação que permite dividir e organizar as despesas entre um grupo de amigos, um casal , colegas de casa , numa saída , numas férias , bem como num alojamento partilhado entre outros.</p>
+
+          <p class="lead mb-5"><strong> Tecnologias e Ferramentas ? </strong> <br> <br>
+           <strong> • FrontEnd - </strong> Aplicação Web - Angular JS
+            <br>
+            <strong>• BackEnd -  </strong><br> 
+            &nbsp &nbsp <strong>• API -</strong> NODE.JS <br> 
+            &nbsp &nbsp <strong>• Deploy Server - </strong> Heroku<br> 
+            &nbsp &nbsp <strong>• Base de dados - </strong> Postgres <br> 
+          <strong>• Documentation/Organization - </strong> Github
+
+        </p>
+
+          <p class="lead mb-5"><strong> Porquê o nome TripAcc ? </strong> <br> <br>
+          Trip - Viagem e Acc(Account) - Conta , basicamente é como consiste o nosso projeto em Viagens/Saídas/Despesas e uma conta onde serão partilhadas todas as despesas.
+           </p>
+
+           <p class="lead mb-5"><strong> Como funciona a TripAcc ? </strong> <br> <br>
+              Depois de se registar no site , a pessoa em questão cria um grupo e adiciona as pessoas que irão ingressar no mesmo,após isso serão adicionadas despesas por qualquer elemento do grupo onde irão descrever a despesa , quem a pagou , a data e o montante, depois inserem os elementos do grupo que fizeram parte daquela despesa e o montante que cada um tem que pagar.
+              <br> <br>
+              Cada utilizador irá conseguir ver todos os grupos em que está inserido vem como o montante que deve/tem de receber em cada um dos grupos bem como as pessoas que tem que pagar/receber.
+              <br> <br>
+              Por fim o utilizador irá ter uma página de definições, onde poderá alterar os seus dados.
+          </p>
+        </section>
+
+        <hr class="divider">
+
+		
+		<!-- Content
+		============================ -->
+        <section id="idocs_content">
+          <h2>Especificação da API</h2>
+          <img src="assets/images/EndPoints.jpg" style="max-width: 100%;">
+        </section>
+
+
+				<hr class="divider">
+
+        <!-- Components
+		============================ -->
+        <section id="idocs_components">
+          <h2>Testes API</h2>
+        </section>
+		  
+		  <!-- Accordion
+		  ============================ -->
+		  <section id="idocs_accordion">
+            <h2>User</h2>
+            <pre><code class="javascript">
+            test('Test #1 - Criar Utilizador', () => {
+              return request(app).post(`${MAIN_ROUTE}/createUser/`)
+                .send({ fullName: 'Carlos Araújo', userName: 'caraujo66', email: 'caraujo@email.com', password: '123123' })
+                .then((res) => {
+                  expect(res.status).toBe(201);
+                  expect(res.body.descricao).toBe('almoço');
+                });
+            });
+            
+            test('Test #2 - Eliminar Utilizador', () => {
+              return request(app).delete(`${MAIN_ROUTE}/deleteAccount/${user.id}`)
+                .set('authorization', `bearer ${user.token}`)
+                .then((res) => {
+                  expect(res.status).toBe(204);
+                });
+            });
+            
+            test('Test #3, Editar Utilizador', () => {
+              return request(app).put(`${MAIN_ROUTE}/updateAccount/${user.id}`)
+                .set('authorization', `bearer ${user.token}`)
+                .send({ fullName: 'Carlos Daniel Araújo' })
+                .then((res) => {
+                  expect(res.status).toBe(200);
+                  expect(res.body.desc).toBe('Dollar');
+                });
+            });
+            
+            </code></pre>
+      </section>
+
+      <hr class="divider">
+		  <!-- Tabs
+		  ============================ -->
+		  <section id="idocs_tabs">
+            <h2>Groups</h2>
+            <pre><code class="javascript">
+            test('Test #1 - Criar Grupo', () => {
+                return request(app).post(`${MAIN_ROUTE}createGroup/${user.id}`)
+                  .set('authorization', `bearer ${user.token}`)
+                  .send({ groupName: 'Ferias', groupObs: 'grupo férias', moeda: 'euro', active: 'true' })
+                  .then((res) => {
+                    expect(res.status).toBe(201);
+                    expect(res.body.moeda).toBe('euro');
+                    request(app).post(`${MAIN_ROUTE}/addGroupMembers/${groupId}`)
+                      .send({ idUser: user.id, idGroup: groupId, active: 'true' })
+                      .then((resu) => {
+                        expect(resu.status).toBe(201);
+                        expect(resu.body.idUser).toBe(user.id);
+                      });
+                  });
+              });
+              
+              test('Test #2 - Editar Grupo', () => {
+                return request(app).put(`${MAIN_ROUTE}/updateGroup/${groupId}`)
+                  .set('authorization', `bearer ${user.token}`)
+                  .send({ moeda: 'Dollar' })
+                  .then((res) => {
+                    expect(res.status).toBe(200);
+                    expect(res.body.desc).toBe('Dollar');
+                  });
+              });
+              
+              test('Test #3 - Eliminar Grupo', () => {
+                return request(app).delete(`${MAIN_ROUTE}/deleteGroup/${groupId}`)
+                  .set('authorization', `bearer ${user.token}`)
+                  .then((res) => {
+                    expect(res.status).toBe(204);
+                  });
+              });
+              
+              test('Test #4 - Listar Grupos do Utilizador', () => {
+                return request(app).get(`${MAIN_ROUTE}/listGroups/${user.id}`)
+                  .set('authorization', `bearer ${user.token}`)
+                  .then((res) => {
+                    expect(res.status).toBe(200);
+                    expect(res.body.id).toBe(groupId);
+                  });
+              });
+              
+              test('Test #5 - Adicionar Utilizador a Grupo', () => {
+                return request(app).post(`${MAIN_ROUTE}/addGroupMembers/${groupId}`)
+                  .set('authorization', `bearer ${user.token}`)
+                  .send({ idUser: newUser, idGroup: groupId, active: 'true' })
+                  .then((resu) => {
+                    expect(resu.status).toBe(201);
+                    expect(resu.body.idUser).toBe(newUser);
+                  });
+              });
+              
+              test('Test #6 - Listar Membros do Grupos', () => {
+                return request(app).get(`${MAIN_ROUTE}/listGroupMembers/${groupId}`)
+                  .set('authorization', `bearer ${user.token}`)
+                  .then((res) => {
+                    expect(res.status).toBe(200);
+                  });
+              });
+              
+              test('Test #7 - Eliminar Grupo', () => {
+                return request(app).delete(`${MAIN_ROUTE}/removeGroupMember/${groupUserId}`)
+                  .set('authorization', `bearer ${user.token}`)
+                  .then((res) => {
+                    expect(res.status).toBe(204);
+                  });
+              });
+              
+            
+            </code></pre>
+          
+		  <hr class="divider">
+		  		  
+          <!-- Social Icon
+		  ============================ -->
+		  <section id="idocs_social_icon">
+            <h3>Payments</h3>
+            <pre><code class="javascript">
+            test('Test #1 - inserir Pagamento', () => {
+                return request(app).post(`${MAIN_ROUTE}/addPayment/${groupId}`)
+                  .set('authorization', `bearer ${user.token}`)
+                  .send({ idGroup: groupId, ammount: 15.4, idUserPaid: user.id, descricao: 'almoço' })
+                  .then((res) => {
+                    expect(res.status).toBe(201);
+                    expect(res.body.descricao).toBe('almoço');
+                  });
+              });
+              
+              test('Test #2 - Editar Pagamento', () => {
+                return request(app).put(`${MAIN_ROUTE}/updatePayment/${paymentId}`)
+                  .set('authorization', `bearer ${user.token}`)
+                  .send({ descricao: 'Prqueno Almoço' })
+                  .then((res) => {
+                    expect(res.status).toBe(200);
+                    expect(res.body.desc).toBe('Prqueno Almoço');
+                  });
+              });
+              
+              test('Test #3 - Remover Pagamento', () => {
+                return request(app).delete(`${MAIN_ROUTE}/removePayment/${paymentId}`)
+                  .set('authorization', `bearer ${user.token}`)
+                  .then((res) => {
+                    expect(res.status).toBe(204);
+                  });
+              });
+              
+              test('Test #4 - Listar Pagamentos do Grupo', () => {
+                return request(app).get(`${MAIN_ROUTE}/listGroupPayments/${groupId}`)
+                  .set('authorization', `bearer ${user.token}`)
+                  .then((res) => {
+                    expect(res.status).toBe(200);
+                    expect(res.body.id).toBe(groupId);
+                  });
+              });      
+            </code></pre>
+		  
+		  <hr class="divider">
+		  
+		<!-- FAQ
+		============================ -->
+		<section id="idocs_faq">
+          <h2>Website Images</h2>
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="./assets/images/HOME.png" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="./assets/images/funciona.png" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="./assets/images/about.png" alt="Third slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="./assets/images/reviews.png" alt="Third slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="./assets/images/footer.png" alt="Third slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="./assets/images/LOGIN.png" alt="Third slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="./assets/images/Register.png" alt="Third slide">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+            
+          </div>
+          
+          
+        </section>  
+      </div>
+    </div>
+	
+  </div>
+  <!-- Content end --> 
+  
+  <!-- Footer
+  ============================ -->
+  <footer id="footer" class="section bg-dark footer-text-light">
+    <div class="container">
+      <ul class="social-icons social-icons-lg social-icons-muted justify-content-center mb-3">
+        <li><a data-toggle="tooltip" href="https://github.com/users/leogomes77/projects/1" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github" style="font-size: 60px;"></i></a></li>
+      </ul>
+    </div>
+  </footer>
+  <!-- Footer end -->
+  
+</div>
+<!-- Document Wrapper end --> 
+
+<!-- Back To Top --> 
+<a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a> 
+
+<!-- JavaScript
+============================ -->
+<script src="assets/vendor/jquery/jquery.min.js"></script> 
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+<!-- Highlight JS -->
+<script src="assets/vendor/highlight.js/highlight.min.js"></script> 
+<!-- Easing --> 
+<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script> 
+<!-- Magnific Popup --> 
+<script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script> 
+<!-- Custom Script -->
+<script src="assets/js/theme.js"></script>
+</body>
+</html>
