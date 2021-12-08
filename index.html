@@ -78,7 +78,7 @@
         <li class="nav-item"><a class="nav-link" href="#idocs_components">Testes da API</a>
           <ul class="nav flex-column">
             <li class="nav-item"><a class="nav-link" href="#idocs_accordion">Testes Users</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_tabs">Testes Group</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_tabs">Testes Groups</a></li>
             <li class="nav-item"><a class="nav-link" href="#idocs_social_icon">Testes Payments</a></li>
           </ul>
         </li>
@@ -95,7 +95,7 @@
         <section id="idocs_start">
         <h1>Introdução</h1>
         <h2></h2>
-        <p class="lead">Trabalho realizado nas UCS de Computação Distribuída e Desenvolvimento Colaborativo de Software</p>
+        <p class="lead">Instituto Politécnico do Cávado e do Ave  </p>
 		<hr>
 		<div class="row">
 			<div class="col-sm-6 col-lg-4">
@@ -154,7 +154,125 @@
 		============================ -->
         <section id="idocs_content">
           <h2>Especificação da API</h2>
-          <img src="assets/images/EndPoints.jpg" style="max-width: 100%;">
+          <table class="table" style="text-align: center;">
+            <thead class="core">
+              <tr>
+                <th scope="col">URL</th>
+                <th scope="col">HTTP Action</th>
+                <th scope="col">Noun</th>
+                <th scope="col">Operation</th>
+              </tr>
+            </thead>
+            <tbody>
+                <!-- Uers Começa-->
+              <tr class="table-primary">
+                <td scope="row">/createUser/;< usedata> </th>
+                <td class="bg-success">POST</td>
+                <td>User</td>
+                <td><a href="#idocs_accordion"><strong>createUser</strong></a></td>
+              </tr>
+              <tr class="table-primary">
+                <td scope="row">/login/;< loginData></th>
+                <td class="bg-info">GET</td>
+                <td>User</td>
+                <td><a href="#idocs_accordion"><strong>logIn</strong></a></td>
+              </tr>
+              <tr class="table-primary">
+                <td scope="row">/deleteAccount/{user_id}</td>
+                <td class="bg-danger">DELETE</td>
+                <td>User</td>
+                <td><a href="#idocs_accordion"><strong>deleteAccount</strong></a></td>
+              </tr>
+              <tr class="table-primary">
+                <td scope="row">/updateAccount/{user_id};< userData></th>
+                <td class="bg-primary">PUT</td>
+                <td>User</td>
+                <td><a href="#idocs_accordion"><strong>updateAccount</strong></a></td>
+              </tr>
+                <!-- Groups Começa-->
+              <tr class="table-warning">
+                <td scope="row">/createGroup/{user_id};< groupData></th>
+                <td class="bg-success">POST</td>
+                <td>Group</td>
+                <td><a href="#idocs_tabs"><strong>createGroup</strong></a></td>
+              </tr>
+              <tr class="table-warning">
+                <td scope="row">/updateGroup/{group_id};< groupData></th>
+                <td class="bg-primary">PUT</td>
+                <td>Group</td>
+                <td><a href="#idocs_tabs"><strong>updateGroup</strong></a></td>
+              </tr>
+              <tr class="table-warning">
+                <td scope="row">/deleteGroup/{group_id}</td>
+                <td class="bg-danger">DELETE</td>
+                <td>Group</td>
+                <td><a href="#idocs_tabs"><strong>deleteGroup</strong></a></td>
+              </tr>
+              <tr class="table-warning">
+                <td scope="row">/listGroups/{user_id}</th>
+                <td class="bg-info">GET</td>
+                <td>Group</td>
+                <td><a href="#idocs_tabs"><strong>listUserGroups</strong></a></td>
+              </tr>
+              <tr class="table-warning">
+                <td scope="row">/addGroupMembers/{group_id};< groupData></th>
+                <td class="bg-success">POST</td>
+                <td>Group</td>
+                <td><a href="#idocs_tabs"><strong>addGroupMembers</strong></a></td>
+              </tr>
+              <tr class="table-warning">
+                <td scope="row">/listGroupMembers/{group_id}</td>
+                <td class="bg-info">GET</td>
+                <td>Group</td>
+                <td><a href="#idocs_tabs"><strong>listGroupMembers</strong></a></td>
+              </tr>
+              <tr class="table-warning">
+                <td scope="row">/removeGroupMember/{groupUser_id}</td>
+                <td class="bg-danger">DELETE</td>
+                <td>Group</td>
+                <td><a href="#idocs_tabs"><strong>removeGroupMember</strong></a></td>
+              </tr>
+              <!-- Groups Termina-->
+              <!-- Paymenys Começa-->
+              <tr class="table-success">
+                <td scope="row">/addPayment/{group_id};< paymentData></th>
+                <td class="bg-success">POST</td>
+                <td>Payment</td>
+                <td><a href="#idocs_social_icon"><strong>addPayment</strong></a></td>
+              </tr>
+              <tr class="table-success">
+                <td scope="row">/updatePayment/{payment_id};< paymentData></th>
+                <td class="bg-primary">PUT</td>
+                <td>Payment</td>
+                <td><a href="#idocs_social_icon"><strong>updatePayment</strong></a></td>
+              </tr>
+              <tr class="table-success">
+                <td scope="row">/removePayment/{payment_id}</td>
+                <td class="bg-danger" >DELETE</td>
+                <td>Payment</td>
+                <td><a href="#idocs_social_icon"><strong>removePayment</strong></a></td>
+              </tr>
+              <tr class="table-success">
+                <td scope="row">/listGroupPayments/{group_id}</td>
+                <td class="bg-info">GET</td>
+                <td>Payment</td>
+                <td><a href="#idocs_social_icon"><strong>listGroupPayments</strong></a></td>
+              </tr>
+              <tr class="table-success">
+                <td scope="row">/calculateDebt/{group_id}</td>
+                <td class="bg-info">GET</td>
+                <td>Payment</td>
+                <td><a href="#idocs_social_icon"><strong>calculateDebt</strong></a></td>
+              </tr>
+              <tr class="table-success">
+                <td scope="row">/closeGroup/{group_id}</td>
+                <td class="bg-info">GET</td>
+                <td>Payment</td>
+                <td><a href="#idocs_social_icon"><strong>closeGroup</strong></a></td>
+              </tr>
+
+            </tbody>
+          </table>
         </section>
 
 
@@ -169,7 +287,7 @@
 		  <!-- Accordion
 		  ============================ -->
 		  <section id="idocs_accordion">
-            <h2>User</h2>
+            <h2>Users</h2>
             <pre><code class="javascript">
             test('Test #1 - Criar Utilizador', () => {
               return request(app).post(`${MAIN_ROUTE}/createUser/`)
@@ -338,7 +456,6 @@
               <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -352,9 +469,6 @@
               </div>
               <div class="carousel-item">
                 <img class="d-block w-100" src="./assets/images/reviews.png" alt="Third slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="./assets/images/footer.png" alt="Third slide">
               </div>
               <div class="carousel-item">
                 <img class="d-block w-100" src="./assets/images/LOGIN.png" alt="Third slide">
