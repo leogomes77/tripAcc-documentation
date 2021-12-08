@@ -1,1 +1,0 @@
-You can see our documentation web page here -> https://leogomes77.github.io/tripAcc-documentation/
