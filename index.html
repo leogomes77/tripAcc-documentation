@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
-<link href="assets/images/favicon.png" rel="icon" />
-<title>Documentação Projeto</title>
+<link href="assets/images/logoverde.png" rel="icon" />
+<title>TripAcc | Documentação Projeto</title>
 <meta name="description" content="Your ThemeForest item Name and description">
 <meta name="author" content="harnishdesign.net">
 
@@ -164,12 +164,12 @@
               </tr>
             </thead>
             <tbody>
-                <!-- Uers Começa-->
+                <!-- Users Começa-->
               <tr class="table-primary">
                 <td scope="row">/createUser/;< usedata> </th>
                 <td class="bg-success">POST</td>
                 <td>User</td>
-                <td><a href="#idocs_accordion"><strong>createUser</strong></a></td>
+                <td><a href="#createUser"><strong>createUser</strong></a></td>
               </tr>
               <tr class="table-primary">
                 <td scope="row">/login/;< loginData></th>
@@ -181,56 +181,56 @@
                 <td scope="row">/deleteAccount/{user_id}</td>
                 <td class="bg-danger">DELETE</td>
                 <td>User</td>
-                <td><a href="#idocs_accordion"><strong>deleteAccount</strong></a></td>
+                <td><a href="#deleteUser"><strong>deleteAccount</strong></a></td>
               </tr>
               <tr class="table-primary">
                 <td scope="row">/updateAccount/{user_id};< userData></th>
-                <td class="bg-primary">PUT</td>
+                <td class="bg-warning">PUT</td>
                 <td>User</td>
-                <td><a href="#idocs_accordion"><strong>updateAccount</strong></a></td>
+                <td><a href="#updateUser"><strong>updateAccount</strong></a></td>
               </tr>
                 <!-- Groups Começa-->
               <tr class="table-warning">
                 <td scope="row">/createGroup/{user_id};< groupData></th>
                 <td class="bg-success">POST</td>
                 <td>Group</td>
-                <td><a href="#idocs_tabs"><strong>createGroup</strong></a></td>
+                <td><a href="#createGroup"><strong>createGroup</strong></a></td>
               </tr>
               <tr class="table-warning">
                 <td scope="row">/updateGroup/{group_id};< groupData></th>
-                <td class="bg-primary">PUT</td>
+                <td class="bg-warning">PUT</td>
                 <td>Group</td>
-                <td><a href="#idocs_tabs"><strong>updateGroup</strong></a></td>
+                <td><a href="#updateGroup"><strong>updateGroup</strong></a></td>
               </tr>
               <tr class="table-warning">
                 <td scope="row">/deleteGroup/{group_id}</td>
                 <td class="bg-danger">DELETE</td>
                 <td>Group</td>
-                <td><a href="#idocs_tabs"><strong>deleteGroup</strong></a></td>
+                <td><a href="#deleteGroup"><strong>deleteGroup</strong></a></td>
               </tr>
               <tr class="table-warning">
                 <td scope="row">/listGroups/{user_id}</th>
                 <td class="bg-info">GET</td>
                 <td>Group</td>
-                <td><a href="#idocs_tabs"><strong>listUserGroups</strong></a></td>
+                <td><a href="#listUserGroups"><strong>listUserGroups</strong></a></td>
               </tr>
               <tr class="table-warning">
                 <td scope="row">/addGroupMembers/{group_id};< groupData></th>
                 <td class="bg-success">POST</td>
                 <td>Group</td>
-                <td><a href="#idocs_tabs"><strong>addGroupMembers</strong></a></td>
+                <td><a href="#addGroupMembers"><strong>addGroupMembers</strong></a></td>
               </tr>
               <tr class="table-warning">
                 <td scope="row">/listGroupMembers/{group_id}</td>
                 <td class="bg-info">GET</td>
                 <td>Group</td>
-                <td><a href="#idocs_tabs"><strong>listGroupMembers</strong></a></td>
+                <td><a href="#listGroupMembers"><strong>listGroupMembers</strong></a></td>
               </tr>
               <tr class="table-warning">
                 <td scope="row">/removeGroupMember/{groupUser_id}</td>
                 <td class="bg-danger">DELETE</td>
                 <td>Group</td>
-                <td><a href="#idocs_tabs"><strong>removeGroupMember</strong></a></td>
+                <td><a href="#removeGroupMember"><strong>removeGroupMember</strong></a></td>
               </tr>
               <!-- Groups Termina-->
               <!-- Paymenys Começa-->
@@ -238,25 +238,25 @@
                 <td scope="row">/addPayment/{group_id};< paymentData></th>
                 <td class="bg-success">POST</td>
                 <td>Payment</td>
-                <td><a href="#idocs_social_icon"><strong>addPayment</strong></a></td>
+                <td><a href="#addPayment"><strong>addPayment</strong></a></td>
               </tr>
               <tr class="table-success">
                 <td scope="row">/updatePayment/{payment_id};< paymentData></th>
-                <td class="bg-primary">PUT</td>
+                <td class="bg-warning">PUT</td>
                 <td>Payment</td>
-                <td><a href="#idocs_social_icon"><strong>updatePayment</strong></a></td>
+                <td><a href="#updatePayment"><strong>updatePayment</strong></a></td>
               </tr>
               <tr class="table-success">
                 <td scope="row">/removePayment/{payment_id}</td>
                 <td class="bg-danger" >DELETE</td>
                 <td>Payment</td>
-                <td><a href="#idocs_social_icon"><strong>removePayment</strong></a></td>
+                <td><a href="#removePayment"><strong>removePayment</strong></a></td>
               </tr>
               <tr class="table-success">
                 <td scope="row">/listGroupPayments/{group_id}</td>
                 <td class="bg-info">GET</td>
                 <td>Payment</td>
-                <td><a href="#idocs_social_icon"><strong>listGroupPayments</strong></a></td>
+                <td><a href="#listGroupPayments"><strong>listGroupPayments</strong></a></td>
               </tr>
               <tr class="table-success">
                 <td scope="row">/calculateDebt/{group_id}</td>
@@ -287,7 +287,9 @@
 		  <!-- Accordion
 		  ============================ -->
 		  <section id="idocs_accordion">
-            <h2>Users</h2>
+            <h2>Users:</h2>
+            <hr id="createUser" class="divider">
+            <h4>Criar Utilizador</h4>
             <pre><code class="javascript">
             test('Test #1 - Criar Utilizador', () => {
               return request(app).post(`${MAIN_ROUTE}/createUser/`)
@@ -296,34 +298,42 @@
                   expect(res.status).toBe(201);
                   expect(res.body.descricao).toBe('almoço');
                 });
-            });
-            
-            test('Test #2 - Eliminar Utilizador', () => {
-              return request(app).delete(`${MAIN_ROUTE}/deleteAccount/${user.id}`)
-                .set('authorization', `bearer ${user.token}`)
-                .then((res) => {
-                  expect(res.status).toBe(204);
-                });
-            });
-            
-            test('Test #3, Editar Utilizador', () => {
-              return request(app).put(`${MAIN_ROUTE}/updateAccount/${user.id}`)
-                .set('authorization', `bearer ${user.token}`)
-                .send({ fullName: 'Carlos Daniel Araújo' })
-                .then((res) => {
-                  expect(res.status).toBe(200);
-                  expect(res.body.desc).toBe('Dollar');
-                });
-            });
-            
+            });           
             </code></pre>
+            <hr id="deleteUser" class="divider">
+
+            <h4>Eliminar Utilizador</h4>
+            <pre><code class="javascript">       
+              test('Test #2 - Eliminar Utilizador', () => {
+                return request(app).delete(`${MAIN_ROUTE}/deleteAccount/${user.id}`)
+                  .set('authorization', `bearer ${user.token}`)
+                  .then((res) => {
+                    expect(res.status).toBe(204);
+                  });
+              });     
+              </code></pre>
+              <hr id="updateUser" class="divider">
+              <h4>Editar Utilizador</h4>
+              <pre><code class="javascript">       
+                test('Test #3, Editar Utilizador', () => {
+                  return request(app).put(`${MAIN_ROUTE}/updateAccount/${user.id}`)
+                    .set('authorization', `bearer ${user.token}`)
+                    .send({ fullName: 'Carlos Daniel Araújo' })
+                    .then((res) => {
+                      expect(res.status).toBe(200);
+                      expect(res.body.desc).toBe('Dollar');
+                    });
+                });               
+              </code></pre>
       </section>
 
       <hr class="divider">
 		  <!-- Tabs
 		  ============================ -->
 		  <section id="idocs_tabs">
-            <h2>Groups</h2>
+            <h2>Groups:</h2>
+            <hr id="createGroup" class="divider">
+            <h4>Criar Grupo</h4>
             <pre><code class="javascript">
             test('Test #1 - Criar Grupo', () => {
                 return request(app).post(`${MAIN_ROUTE}createGroup/${user.id}`)
@@ -340,69 +350,87 @@
                       });
                   });
               });
-              
-              test('Test #2 - Editar Grupo', () => {
-                return request(app).put(`${MAIN_ROUTE}/updateGroup/${groupId}`)
-                  .set('authorization', `bearer ${user.token}`)
-                  .send({ moeda: 'Dollar' })
-                  .then((res) => {
-                    expect(res.status).toBe(200);
-                    expect(res.body.desc).toBe('Dollar');
-                  });
-              });
-              
-              test('Test #3 - Eliminar Grupo', () => {
-                return request(app).delete(`${MAIN_ROUTE}/deleteGroup/${groupId}`)
-                  .set('authorization', `bearer ${user.token}`)
-                  .then((res) => {
-                    expect(res.status).toBe(204);
-                  });
-              });
-              
-              test('Test #4 - Listar Grupos do Utilizador', () => {
-                return request(app).get(`${MAIN_ROUTE}/listGroups/${user.id}`)
-                  .set('authorization', `bearer ${user.token}`)
-                  .then((res) => {
-                    expect(res.status).toBe(200);
-                    expect(res.body.id).toBe(groupId);
-                  });
-              });
-              
-              test('Test #5 - Adicionar Utilizador a Grupo', () => {
-                return request(app).post(`${MAIN_ROUTE}/addGroupMembers/${groupId}`)
-                  .set('authorization', `bearer ${user.token}`)
-                  .send({ idUser: newUser, idGroup: groupId, active: 'true' })
-                  .then((resu) => {
-                    expect(resu.status).toBe(201);
-                    expect(resu.body.idUser).toBe(newUser);
-                  });
-              });
-              
-              test('Test #6 - Listar Membros do Grupos', () => {
-                return request(app).get(`${MAIN_ROUTE}/listGroupMembers/${groupId}`)
-                  .set('authorization', `bearer ${user.token}`)
-                  .then((res) => {
-                    expect(res.status).toBe(200);
-                  });
-              });
-              
-              test('Test #7 - Eliminar Grupo', () => {
-                return request(app).delete(`${MAIN_ROUTE}/removeGroupMember/${groupUserId}`)
-                  .set('authorization', `bearer ${user.token}`)
-                  .then((res) => {
-                    expect(res.status).toBe(204);
-                  });
-              });
-              
-            
             </code></pre>
+            <hr id="updateGroup" class="divider">
+            <h4>Editar Grupo</h4>
+            <pre><code class="javascript">
+                test('Test #2 - Editar Grupo', () => {
+                  return request(app).put(`${MAIN_ROUTE}/updateGroup/${groupId}`)
+                    .set('authorization', `bearer ${user.token}`)
+                    .send({ moeda: 'Dollar' })
+                    .then((res) => {
+                      expect(res.status).toBe(200);
+                      expect(res.body.desc).toBe('Dollar');
+                    });
+                });
+              </code></pre>
+              <hr id="deleteGroup" class="divider">
+              <h4>Eliminar Grupo</h4>
+              <pre><code class="javascript">
+                  test('Test #3 - Eliminar Grupo', () => {
+                    return request(app).delete(`${MAIN_ROUTE}/deleteGroup/${groupId}`)
+                      .set('authorization', `bearer ${user.token}`)
+                      .then((res) => {
+                        expect(res.status).toBe(204);
+                      });
+                  });
+                </code></pre>
+                <hr id="listUserGroups" class="divider">
+                <h4>Listar Grupos do Utilizador Grupo</h4>
+                <pre><code class="javascript">
+                    test('Test #4 - Listar Grupos do Utilizador', () => {
+                      return request(app).get(`${MAIN_ROUTE}/listGroups/${user.id}`)
+                        .set('authorization', `bearer ${user.token}`)
+                        .then((res) => {
+                          expect(res.status).toBe(200);
+                          expect(res.body.id).toBe(groupId);
+                        });
+                    });
+                  </code></pre>
+                  <hr id="addGroupMenbers" class="divider">
+                  <h4>Adicionar Utilizar a Grupo</h4>
+                  <pre><code class="javascript">
+                      test('Test #5 - Adicionar Utilizador a Grupo', () => {
+                        return request(app).post(`${MAIN_ROUTE}/addGroupMembers/${groupId}`)
+                          .set('authorization', `bearer ${user.token}`)
+                          .send({ idUser: newUser, idGroup: groupId, active: 'true' })
+                          .then((resu) => {
+                            expect(resu.status).toBe(201);
+                            expect(resu.body.idUser).toBe(newUser);
+                          });
+                      });    
+                    </code></pre>
+                    <hr id="listGroupMembers" class="divider">
+                    <h4>Listar Membros do Grupo</h4>
+                    <pre><code class="javascript">                      
+                        test('Test #6 - Listar Membros do Grupos', () => {
+                          return request(app).get(`${MAIN_ROUTE}/listGroupMembers/${groupId}`)
+                            .set('authorization', `bearer ${user.token}`)
+                            .then((res) => {
+                              expect(res.status).toBe(200);
+                            });
+                        });           
+                      </code></pre>
+                      <hr id="removeGroupMember" class="divider">
+                      <h4>Eliminar Membro do Grupo</h4>
+                      <pre><code class="javascript">
+                          test('Test #7 - Eliminar Membro do Grupo', () => {
+                            return request(app).delete(`${MAIN_ROUTE}/removeGroupMember/${groupUserId}`)
+                              .set('authorization', `bearer ${user.token}`)
+                              .then((res) => {
+                                expect(res.status).toBe(204);
+                              });
+                          });                     
+                        </code></pre>
           
 		  <hr class="divider">
 		  		  
           <!-- Social Icon
 		  ============================ -->
 		  <section id="idocs_social_icon">
-            <h3>Payments</h3>
+            <h3>Payments:</h3>
+            <hr id="addPayment" class="divider">
+            <h4>Inserir Pagamento</h4>
             <pre><code class="javascript">
             test('Test #1 - inserir Pagamento', () => {
                 return request(app).post(`${MAIN_ROUTE}/addPayment/${groupId}`)
@@ -413,7 +441,10 @@
                     expect(res.body.descricao).toBe('almoço');
                   });
               });
-              
+            </code></pre>
+            <hr id="updatePayment" class="divider">
+            <h4>Editar Pagamento</h4>
+            <pre><code class="javascript">
               test('Test #2 - Editar Pagamento', () => {
                 return request(app).put(`${MAIN_ROUTE}/updatePayment/${paymentId}`)
                   .set('authorization', `bearer ${user.token}`)
@@ -423,15 +454,21 @@
                     expect(res.body.desc).toBe('Prqueno Almoço');
                   });
               });
-              
+            </code></pre>
+            <hr id="removePayment" class="divider">
+            <h4>Remover Pagamento</h4>
+            <pre><code class="javascript">
               test('Test #3 - Remover Pagamento', () => {
                 return request(app).delete(`${MAIN_ROUTE}/removePayment/${paymentId}`)
                   .set('authorization', `bearer ${user.token}`)
                   .then((res) => {
                     expect(res.status).toBe(204);
                   });
-              });
-              
+              });   
+            </code></pre>
+            <hr id="listGroupPayments" class="divider">
+            <h4>Listar Pagamentos do Grupo</h4>
+            <pre><code class="javascript">
               test('Test #4 - Listar Pagamentos do Grupo', () => {
                 return request(app).get(`${MAIN_ROUTE}/listGroupPayments/${groupId}`)
                   .set('authorization', `bearer ${user.token}`)
@@ -439,9 +476,8 @@
                     expect(res.status).toBe(200);
                     expect(res.body.id).toBe(groupId);
                   });
-              });      
-            </code></pre>
-		  
+              });    
+            </code></pre>    
 		  <hr class="divider">
 		  
 		<!-- FAQ
