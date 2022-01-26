@@ -175,7 +175,7 @@
                 <td scope="row">/login/;< loginData></th>
                 <td class="bg-info">GET</td>
                 <td>User</td>
-                <td><a href="#idocs_accordion"><strong>logIn</strong></a></td>
+                <td><a href="#login"><strong>logIn</strong></a></td>
               </tr>
               <tr class="table-primary">
                 <td scope="row">/deleteAccount/{user_id}</td>
@@ -218,7 +218,7 @@
                 <td scope="row">/addGroupMembers/{group_id};< groupData></th>
                 <td class="bg-success">POST</td>
                 <td>Group</td>
-                <td><a href="#addGroupMembers"><strong>addGroupMembers</strong></a></td>
+                <td><a href="#addGroupMenbers"><strong>addGroupMembers</strong></a></td>
               </tr>
               <tr class="table-warning">
                 <td scope="row">/listGroupMembers/{group_id}</td>
@@ -289,17 +289,37 @@
 		  <section id="idocs_accordion">
             <h2>Users:</h2>
             <hr id="createUser" class="divider">
-            <h4>Criar Utilizador</h4>
+            <h4>Registar</h4>
             <pre><code class="javascript">
-            test('Test #1 - Criar Utilizador', () => {
-              return request(app).post(`${MAIN_ROUTE}/createUser/`)
-                .send({ fullName: 'Carlos Araújo', userName: 'caraujo66', email: 'caraujo@email.com', password: '123123' })
-                .then((res) => {
-                  expect(res.status).toBe(201);
-                  expect(res.body.descricao).toBe('almoço');
-                });
-            });           
+              test('Test #5 - Criar utilizador', () => {
+                const nmail = `${Date.now()}@ipca.pt`;
+                return request(app).post('/auth/signup')
+                  .send({ name: 'Leonardo Signup', email: nmail, password: '12345' })
+                  .then((res) => {
+                    expect(res.status).toBe(201);
+                    expect(res.body.name).toBe('Leonardo Signup');
+                    expect(res.body).toHaveProperty('email');
+                    expect(res.body).not.toHaveProperty('password');
+                  });
+              });
+                       
             </code></pre>
+            <hr id="login" class="divider">
+
+            <h4>Login</h4>
+            <pre><code class="javascript">
+              test('Test #1 - Receber token ao autenticar', () => {
+                return app.services.user.save(
+                  { name: 'Leonardo Auth', email: mail, password: '12345' },
+                ).then(() => request(app).post('/auth/signin')
+                  .send({ email: mail, password: '12345' }))
+                  .then((res) => {
+                    expect(res.status).toBe(200);
+                    expect(res.body).toHaveProperty('token');
+                  });
+              });         
+            </code></pre>
+
             <hr id="deleteUser" class="divider">
 
             <h4>Eliminar Utilizador</h4>
@@ -335,48 +355,50 @@
             <hr id="createGroup" class="divider">
             <h4>Criar Grupo</h4>
             <pre><code class="javascript">
-            test('Test #1 - Criar Grupo', () => {
-                return request(app).post(`${MAIN_ROUTE}createGroup/${user.id}`)
+              test('Test #2 - inserir grupo', () => {
+                return request(app).post(MAIN_ROUTE)
                   .set('authorization', `bearer ${user.token}`)
-                  .send({ groupName: 'Ferias', groupObs: 'grupo férias', moeda: 'euro', active: 'true' })
+                  .send({ name: 'Maldivas', descricao: 'Ida maldivas', moeda: 'euro' })
                   .then((res) => {
                     expect(res.status).toBe(201);
-                    expect(res.body.moeda).toBe('euro');
-                    request(app).post(`${MAIN_ROUTE}/addGroupMembers/${groupId}`)
-                      .send({ idUser: user.id, idGroup: groupId, active: 'true' })
-                      .then((resu) => {
-                        expect(resu.status).toBe(201);
-                        expect(resu.body.idUser).toBe(user.id);
-                      });
+                    expect(res.body.name).toBe('Maldivas');
                   });
               });
             </code></pre>
             <hr id="updateGroup" class="divider">
             <h4>Editar Grupo</h4>
             <pre><code class="javascript">
-                test('Test #2 - Editar Grupo', () => {
-                  return request(app).put(`${MAIN_ROUTE}/updateGroup/${groupId}`)
+              test('Test #4 - Atualizar Grupo', () => {
+                return app.db('groupp')
+                  .insert({
+                    name: 'Ferias Suica', descricao: 'Férias Suica com amigos', moeda: 'Euro',
+                  }, ['id'])
+                  .then((serv) => request(app).put(`${MAIN_ROUTE}/${serv[0].id}`)
                     .set('authorization', `bearer ${user.token}`)
-                    .send({ moeda: 'Dollar' })
-                    .then((res) => {
-                      expect(res.status).toBe(200);
-                      expect(res.body.desc).toBe('Dollar');
-                    });
-                });
+                    .send({
+                      name: 'Ferias Suica Teste', descricao: 'Férias Suica com amigos Teste', moeda: 'Euro',
+                    }))
+                  .then((res) => {
+                    expect(res.status).toBe(200);
+                    expect(res.body.descricao).toBe('Férias Suica com amigos Teste');
+                  });
+              });
               </code></pre>
               <hr id="deleteGroup" class="divider">
               <h4>Eliminar Grupo</h4>
               <pre><code class="javascript">
-                  test('Test #3 - Eliminar Grupo', () => {
-                    return request(app).delete(`${MAIN_ROUTE}/deleteGroup/${groupId}`)
-                      .set('authorization', `bearer ${user.token}`)
-                      .then((res) => {
-                        expect(res.status).toBe(204);
-                      });
-                  });
+                test('Test #3 - Remover um Grupo', () => {
+                  return app.db('groupp')
+                    .insert({ name: 'Group to delete', descricao: 'Trip to Chile', moeda: 'euro' }, ['id'])
+                    .then((group) => request(app).delete(`${MAIN_ROUTE}/${group[0].id}`)
+                      .set('authorization', `bearer ${user.token} `))
+                    .then((res) => {
+                      expect(res.status).toBe(204);
+                    });
+                });
                 </code></pre>
                 <hr id="listUserGroups" class="divider">
-                <h4>Listar Grupos do Utilizador Grupo</h4>
+                <h4>Listar Grupos do Utilizador</h4>
                 <pre><code class="javascript">
                     test('Test #4 - Listar Grupos do Utilizador', () => {
                       return request(app).get(`${MAIN_ROUTE}/listGroups/${user.id}`)
@@ -390,37 +412,40 @@
                   <hr id="addGroupMenbers" class="divider">
                   <h4>Adicionar Utilizar a Grupo</h4>
                   <pre><code class="javascript">
-                      test('Test #5 - Adicionar Utilizador a Grupo', () => {
-                        return request(app).post(`${MAIN_ROUTE}/addGroupMembers/${groupId}`)
-                          .set('authorization', `bearer ${user.token}`)
-                          .send({ idUser: newUser, idGroup: groupId, active: 'true' })
-                          .then((resu) => {
-                            expect(resu.status).toBe(201);
-                            expect(resu.body.idUser).toBe(newUser);
-                          });
-                      });    
+                    test('Test #2 - Inserir Membro', () => {
+                      return request(app).post(MAIN_ROUTE)
+                        .set('authorization', `bearer ${user.token}`)
+                        .send({ id_group: 21, id_user: 100 })
+                        .then((res) => {
+                          expect(res.status).toBe(201);
+                          expect(res.body.id_group).toBe(21);
+                        });
+                    });  
                     </code></pre>
                     <hr id="listGroupMembers" class="divider">
                     <h4>Listar Membros do Grupo</h4>
                     <pre><code class="javascript">                      
-                        test('Test #6 - Listar Membros do Grupos', () => {
-                          return request(app).get(`${MAIN_ROUTE}/listGroupMembers/${groupId}`)
-                            .set('authorization', `bearer ${user.token}`)
-                            .then((res) => {
-                              expect(res.status).toBe(200);
-                            });
-                        });           
+                      test('Test #1 - Listar Membros', () => {
+                        return request(app).get(MAIN_ROUTE)
+                          .set('authorization', `bearer ${user.token}`)
+                          .then((res) => {
+                            expect(res.status).toBe(200);
+                            expect(res.body.length).toBeGreaterThan(0);
+                          });
+                      });        
                       </code></pre>
                       <hr id="removeGroupMember" class="divider">
                       <h4>Eliminar Membro do Grupo</h4>
                       <pre><code class="javascript">
-                          test('Test #7 - Eliminar Membro do Grupo', () => {
-                            return request(app).delete(`${MAIN_ROUTE}/removeGroupMember/${groupUserId}`)
-                              .set('authorization', `bearer ${user.token}`)
-                              .then((res) => {
-                                expect(res.status).toBe(204);
-                              });
-                          });                     
+                        test('Test #3 - Remover um membro do grupo', () => {
+                          return app.db('group_users')
+                            .insert({ id_group: 12, id_user: 101 }, ['id'])
+                            .then((group) => request(app).delete(`${MAIN_ROUTE}/${group[0].id}`)
+                              .set('authorization', `bearer ${user.token} `))
+                            .then((res) => {
+                              expect(res.status).toBe(204);
+                            });
+                        });                   
                         </code></pre>
           
 		  <hr class="divider">
@@ -432,51 +457,61 @@
             <hr id="addPayment" class="divider">
             <h4>Inserir Pagamento</h4>
             <pre><code class="javascript">
-            test('Test #1 - inserir Pagamento', () => {
-                return request(app).post(`${MAIN_ROUTE}/addPayment/${groupId}`)
+              test('Test #2 - Inserir Despesas', () => {
+                return request(app).post(MAIN_ROUTE)
                   .set('authorization', `bearer ${user.token}`)
-                  .send({ idGroup: groupId, ammount: 15.4, idUserPaid: user.id, descricao: 'almoço' })
+                  .send({ id_group: 21, amount: 100.00, id_user_paid: 100 })
                   .then((res) => {
                     expect(res.status).toBe(201);
-                    expect(res.body.descricao).toBe('almoço');
+                    expect(res.body.amount).toBe(100.00);
                   });
               });
             </code></pre>
             <hr id="updatePayment" class="divider">
             <h4>Editar Pagamento</h4>
             <pre><code class="javascript">
-              test('Test #2 - Editar Pagamento', () => {
-                return request(app).put(`${MAIN_ROUTE}/updatePayment/${paymentId}`)
-                  .set('authorization', `bearer ${user.token}`)
-                  .send({ descricao: 'Prqueno Almoço' })
+              test('Test #4 - Atualizar Despesa', () => {
+                return app.db('group_bills')
+                  .insert({
+                    id_group: 12, amount: 100.00, id_user_paid: 100,
+                  }, ['id'])
+                  .then((serv) => request(app).put(`${MAIN_ROUTE}/${serv[0].id}`)
+                    .set('authorization', `bearer ${user.token}`)
+                    .send({
+                      id_group: 12, amount: 120.00, id_user_paid: 100,
+                    }))
                   .then((res) => {
                     expect(res.status).toBe(200);
-                    expect(res.body.desc).toBe('Prqueno Almoço');
+                    expect(res.body.amount).toBe(120.00);
                   });
               });
+              
             </code></pre>
             <hr id="removePayment" class="divider">
             <h4>Remover Pagamento</h4>
             <pre><code class="javascript">
-              test('Test #3 - Remover Pagamento', () => {
-                return request(app).delete(`${MAIN_ROUTE}/removePayment/${paymentId}`)
-                  .set('authorization', `bearer ${user.token}`)
+              test('Test #3 - Remover uma despesa', () => {
+                return app.db('group_bills')
+                  .insert({ id_group: 12, amount: 100.00, id_user_paid: 100 }, ['id'])
+                  .then((group) => request(app).delete(`${MAIN_ROUTE}/${group[0].id}`)
+                    .set('authorization', `bearer ${user.token} `))
                   .then((res) => {
                     expect(res.status).toBe(204);
                   });
-              });   
+              });  
             </code></pre>
             <hr id="listGroupPayments" class="divider">
             <h4>Listar Pagamentos do Grupo</h4>
             <pre><code class="javascript">
-              test('Test #4 - Listar Pagamentos do Grupo', () => {
-                return request(app).get(`${MAIN_ROUTE}/listGroupPayments/${groupId}`)
+              test('Test #1 - Listar Depesas', () => {
+                return request(app).get(MAIN_ROUTE)
                   .set('authorization', `bearer ${user.token}`)
                   .then((res) => {
                     expect(res.status).toBe(200);
-                    expect(res.body.id).toBe(groupId);
+                    expect(res.body.length).toBeGreaterThan(0);
                   });
-              });    
+              });
+                
             </code></pre>    
 		  <hr class="divider">
 		  
